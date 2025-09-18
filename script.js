@@ -103,30 +103,93 @@ document.addEventListener('DOMContentLoaded', () => {
 // Scroll event listener for animations
 window.addEventListener('scroll', animateOnScroll);
 
-// Typing effect for hero subtitle
-const typeWriter = (element, text, speed = 100) => {
-    let i = 0;
-    element.innerHTML = '';
+// Enhanced typing effect for hero subtitle with cycling titles
+class TypingAnimation {
+    constructor(element, texts, options = {}) {
+        this.element = element;
+        this.texts = texts;
+        this.typeSpeed = options.typeSpeed || 100;
+        this.deleteSpeed = options.deleteSpeed || 50;
+        this.pauseDuration = options.pauseDuration || 2000;
+        this.deletePauseDuration = options.deletePauseDuration || 1000;
+        
+        this.currentTextIndex = 0;
+        this.currentCharIndex = 0;
+        this.isDeleting = false;
+        this.isPaused = false;
+        
+        this.start();
+    }
     
-    const typing = () => {
-        if (i < text.length) {
-            element.innerHTML += text.charAt(i);
-            i++;
-            setTimeout(typing, speed);
+    start() {
+        this.type();
+    }
+    
+    type() {
+        const currentText = this.texts[this.currentTextIndex];
+        
+        if (this.isPaused) {
+            setTimeout(() => {
+                this.isPaused = false;
+                this.type();
+            }, this.isDeleting ? this.deletePauseDuration : this.pauseDuration);
+            return;
         }
-    };
-    
-    typing();
-};
+        
+        if (this.isDeleting) {
+            // Deleting characters
+            if (this.currentCharIndex > 0) {
+                this.currentCharIndex--;
+                this.element.textContent = currentText.substring(0, this.currentCharIndex);
+                setTimeout(() => this.type(), this.deleteSpeed);
+            } else {
+                // Finished deleting, move to next text
+                this.isDeleting = false;
+                this.currentTextIndex = (this.currentTextIndex + 1) % this.texts.length;
+                this.isPaused = true;
+                this.type();
+            }
+        } else {
+            // Typing characters
+            if (this.currentCharIndex < currentText.length) {
+                this.currentCharIndex++;
+                this.element.textContent = currentText.substring(0, this.currentCharIndex);
+                setTimeout(() => this.type(), this.typeSpeed);
+            } else {
+                // Finished typing, pause then start deleting
+                this.isDeleting = true;
+                this.isPaused = true;
+                this.type();
+            }
+        }
+    }
+}
 
-// Initialize typing effect when page loads
+// Initialize enhanced typing effect when page loads
 window.addEventListener('load', () => {
-    const heroSubtitle = document.querySelector('.hero-subtitle');
-    if (heroSubtitle) {
-        const originalText = heroSubtitle.textContent;
+    const typingElement = document.querySelector('#typing-text');
+    if (typingElement) {
+        const professionalTitles = [
+            'Lead Software Engineer',
+            'Quantum Computing Student', 
+            'ML Engineer',
+            'Infrastructure Architect',
+            'Physicist',
+            'Full Stack Developer',
+            'Research Engineer',
+            'Tech Lead',
+            'AI Enthusiast'
+        ];
+        
+        // Start typing animation after a brief delay
         setTimeout(() => {
-            typeWriter(heroSubtitle, originalText, 80);
-        }, 1000);
+            new TypingAnimation(typingElement, professionalTitles, {
+                typeSpeed: 120,
+                deleteSpeed: 60,
+                pauseDuration: 3000,
+                deletePauseDuration: 800
+            });
+        }, 1500);
     }
 });
 

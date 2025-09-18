@@ -164,6 +164,21 @@ body {
     font-weight: 500;
     margin-bottom: 1.5rem;
     color: #e0e7ff;
+    min-height: 2rem;
+    display: flex;
+    align-items: center;
+    gap: 0.1rem;
+}
+
+.typing-cursor {
+    animation: blink 1s infinite;
+    font-weight: 400;
+    color: #a5b4fc;
+}
+
+@keyframes blink {
+    0%, 50% { opacity: 1; }
+    51%, 100% { opacity: 0; }
 }
 
 .hero-description {
@@ -822,6 +837,13 @@ section {
     
     .hero-subtitle {
         font-size: 1.2rem;
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 0;
+    }
+    
+    .typing-cursor {
+        display: inline;
     }
     
     .hero-buttons {
