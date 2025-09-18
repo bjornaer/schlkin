@@ -4,6 +4,130 @@ const navMenu = document.querySelector('.nav-menu');
 const navLinks = document.querySelectorAll('.nav-link');
 const navbar = document.querySelector('.navbar');
 
+// Theme selector elements
+const themeToggle = document.getElementById('theme-toggle');
+const themeDropdown = document.getElementById('theme-dropdown');
+const themeOptions = document.querySelectorAll('.theme-option');
+
+// Theme Management
+class ThemeManager {
+    constructor() {
+        this.currentTheme = localStorage.getItem('theme') || 'default';
+        this.init();
+    }
+
+    init() {
+        this.applyTheme(this.currentTheme);
+        this.updateActiveThemeOption();
+        this.bindEvents();
+    }
+
+    bindEvents() {
+        // Toggle dropdown
+        themeToggle.addEventListener('click', (e) => {
+            e.stopPropagation();
+            this.toggleDropdown();
+        });
+
+        // Close dropdown when clicking outside
+        document.addEventListener('click', (e) => {
+            if (!e.target.closest('.theme-selector')) {
+                this.closeDropdown();
+            }
+        });
+
+        // Theme option selection
+        themeOptions.forEach(option => {
+            option.addEventListener('click', () => {
+                const theme = option.dataset.theme;
+                this.setTheme(theme);
+                this.closeDropdown();
+            });
+        });
+
+        // Close dropdown on escape key
+        document.addEventListener('keydown', (e) => {
+            if (e.key === 'Escape') {
+                this.closeDropdown();
+            }
+        });
+    }
+
+    toggleDropdown() {
+        const isActive = themeDropdown.classList.contains('active');
+        if (isActive) {
+            this.closeDropdown();
+        } else {
+            this.openDropdown();
+        }
+    }
+
+    openDropdown() {
+        themeToggle.classList.add('active');
+        themeDropdown.classList.add('active');
+    }
+
+    closeDropdown() {
+        themeToggle.classList.remove('active');
+        themeDropdown.classList.remove('active');
+    }
+
+    setTheme(theme) {
+        this.currentTheme = theme;
+        this.applyTheme(theme);
+        this.updateActiveThemeOption();
+        localStorage.setItem('theme', theme);
+
+        // Trigger a custom event for theme change
+        document.dispatchEvent(new CustomEvent('themeChanged', { detail: { theme } }));
+    }
+
+    applyTheme(theme) {
+        // Remove all theme classes
+        document.documentElement.removeAttribute('data-theme');
+
+        // Apply new theme
+        if (theme !== 'default') {
+            document.documentElement.setAttribute('data-theme', theme);
+        }
+
+        // Update meta theme color for mobile browsers
+        this.updateMetaThemeColor(theme);
+    }
+
+    updateMetaThemeColor(theme) {
+        const metaThemeColor = document.querySelector('meta[name="theme-color"]');
+        const colors = {
+            default: '#2563eb',
+            dark: '#3b82f6',
+            green: '#10b981',
+            purple: '#8b5cf6',
+            orange: '#f97316',
+            cyberpunk: '#ff0080'
+        };
+
+        if (metaThemeColor) {
+            metaThemeColor.setAttribute('content', colors[theme] || colors.default);
+        }
+    }
+
+    updateActiveThemeOption() {
+        themeOptions.forEach(option => {
+            option.classList.remove('active');
+            if (option.dataset.theme === this.currentTheme) {
+                option.classList.add('active');
+            }
+        });
+    }
+
+    getCurrentTheme() {
+        return this.currentTheme;
+    }
+}
+
+// Initialize theme manager
+const themeManager = new ThemeManager();
+
 // Mobile Navigation Toggle
 hamburger.addEventListener('click', () => {
     hamburger.classList.toggle('active');
@@ -18,15 +142,40 @@ navLinks.forEach(link => {
     });
 });
 
-// Navbar scroll effect
+// Close mobile menu and theme dropdown when clicking outside
+document.addEventListener('click', (e) => {
+    if (!e.target.closest('.nav-container')) {
+        hamburger.classList.remove('active');
+        navMenu.classList.remove('active');
+    }
+});
+
+// Navbar scroll effect with theme awareness
 window.addEventListener('scroll', () => {
+    const currentTheme = themeManager.getCurrentTheme();
+    const isDark = currentTheme === 'dark' || currentTheme === 'cyberpunk';
+
     if (window.scrollY > 100) {
-        navbar.style.background = 'rgba(255, 255, 255, 0.98)';
+        if (isDark) {
+            navbar.style.background = 'rgba(17, 24, 39, 0.98)';
+        } else {
+            navbar.style.background = 'rgba(255, 255, 255, 0.98)';
+        }
         navbar.style.boxShadow = '0 2px 20px rgba(0, 0, 0, 0.1)';
     } else {
-        navbar.style.background = 'rgba(255, 255, 255, 0.95)';
+        if (isDark) {
+            navbar.style.background = 'rgba(17, 24, 39, 0.95)';
+        } else {
+            navbar.style.background = 'rgba(255, 255, 255, 0.95)';
+        }
         navbar.style.boxShadow = 'none';
     }
+});
+
+// Listen for theme changes and update navbar
+document.addEventListener('themeChanged', () => {
+    // Trigger scroll event to update navbar colors
+    window.dispatchEvent(new Event('scroll'));
 });
 
 // Smooth scrolling for navigation links
@@ -57,7 +206,7 @@ const observer = new IntersectionObserver((entries) => {
         if (entry.isIntersecting) {
             // Remove active class from all nav links
             navLinks.forEach(link => link.classList.remove('active'));
-            
+
             // Add active class to corresponding nav link
             const activeLink = document.querySelector(`.nav-link[href="#${entry.target.id}"]`);
             if (activeLink) {
@@ -74,11 +223,11 @@ sections.forEach(section => {
 // Animate elements on scroll
 const animateOnScroll = () => {
     const elements = document.querySelectorAll('.timeline-item, .project-card, .skill-category, .publication-card, .stat');
-    
+
     elements.forEach(element => {
         const elementTop = element.getBoundingClientRect().top;
         const windowHeight = window.innerHeight;
-        
+
         if (elementTop < windowHeight * 0.8) {
             element.style.opacity = '1';
             element.style.transform = 'translateY(0)';
@@ -89,13 +238,13 @@ const animateOnScroll = () => {
 // Initialize animation styles
 document.addEventListener('DOMContentLoaded', () => {
     const elements = document.querySelectorAll('.timeline-item, .project-card, .skill-category, .publication-card, .stat');
-    
+
     elements.forEach(element => {
         element.style.opacity = '0';
         element.style.transform = 'translateY(30px)';
         element.style.transition = 'opacity 0.6s ease, transform 0.6s ease';
     });
-    
+
     // Initial animation check
     animateOnScroll();
 });
@@ -112,22 +261,22 @@ class TypingAnimation {
         this.deleteSpeed = options.deleteSpeed || 50;
         this.pauseDuration = options.pauseDuration || 2000;
         this.deletePauseDuration = options.deletePauseDuration || 1000;
-        
+
         this.currentTextIndex = 0;
         this.currentCharIndex = 0;
         this.isDeleting = false;
         this.isPaused = false;
-        
+
         this.start();
     }
-    
+
     start() {
         this.type();
     }
-    
+
     type() {
         const currentText = this.texts[this.currentTextIndex];
-        
+
         if (this.isPaused) {
             setTimeout(() => {
                 this.isPaused = false;
@@ -135,7 +284,7 @@ class TypingAnimation {
             }, this.isDeleting ? this.deletePauseDuration : this.pauseDuration);
             return;
         }
-        
+
         if (this.isDeleting) {
             // Deleting characters
             if (this.currentCharIndex > 0) {
@@ -171,7 +320,7 @@ window.addEventListener('load', () => {
     if (typingElement) {
         const professionalTitles = [
             'Lead Software Engineer',
-            'Quantum Computing Student', 
+            'Quantum Computing Student',
             'ML Engineer',
             'Infrastructure Architect',
             'Physicist',
@@ -180,7 +329,7 @@ window.addEventListener('load', () => {
             'Tech Lead',
             'AI Enthusiast'
         ];
-        
+
         // Start typing animation after a brief delay
         setTimeout(() => {
             new TypingAnimation(typingElement, professionalTitles, {
@@ -196,13 +345,13 @@ window.addEventListener('load', () => {
 // Skill tags hover effect
 document.addEventListener('DOMContentLoaded', () => {
     const skillTags = document.querySelectorAll('.skill-tag');
-    
+
     skillTags.forEach(tag => {
-        tag.addEventListener('mouseenter', function() {
+        tag.addEventListener('mouseenter', function () {
             this.style.transform = 'scale(1.1) rotate(2deg)';
         });
-        
-        tag.addEventListener('mouseleave', function() {
+
+        tag.addEventListener('mouseleave', function () {
             this.style.transform = 'scale(1) rotate(0deg)';
         });
     });
@@ -214,7 +363,7 @@ document.addEventListener('DOMContentLoaded', () => {
 // Contact form animation (if you add a form later)
 const animateContactItems = () => {
     const contactItems = document.querySelectorAll('.contact-item, .contact-link');
-    
+
     contactItems.forEach((item, index) => {
         item.style.animationDelay = `${index * 0.1}s`;
         item.classList.add('animate-slide-in');
@@ -319,15 +468,15 @@ const konamiSequence = [38, 38, 40, 40, 37, 39, 37, 39, 66, 65]; // ↑↑↓↓
 
 document.addEventListener('keydown', (e) => {
     konamiCode.push(e.keyCode);
-    
+
     if (konamiCode.length > konamiSequence.length) {
         konamiCode.shift();
     }
-    
+
     if (konamiCode.join(',') === konamiSequence.join(',')) {
         // Easter egg activated!
         document.body.style.animation = 'rainbow 2s infinite';
-        
+
         const easterEggStyle = document.createElement('style');
         easterEggStyle.textContent = `
             @keyframes rainbow {
@@ -336,12 +485,12 @@ document.addEventListener('keydown', (e) => {
             }
         `;
         document.head.appendChild(easterEggStyle);
-        
+
         setTimeout(() => {
             document.body.style.animation = '';
             easterEggStyle.remove();
         }, 4000);
-        
+
         // Show a fun message
         const message = document.createElement('div');
         message.textContent = '🎉 You found the easter egg! "The Mind is the matrix of all matter" 🧠';
@@ -358,7 +507,7 @@ document.addEventListener('keydown', (e) => {
             font-weight: 600;
             animation: slideInRight 0.5s ease;
         `;
-        
+
         const slideInRightStyle = document.createElement('style');
         slideInRightStyle.textContent = `
             @keyframes slideInRight {
@@ -367,14 +516,14 @@ document.addEventListener('keydown', (e) => {
             }
         `;
         document.head.appendChild(slideInRightStyle);
-        
+
         document.body.appendChild(message);
-        
+
         setTimeout(() => {
             message.remove();
             slideInRightStyle.remove();
         }, 5000);
-        
+
         konamiCode = [];
     }
 });
