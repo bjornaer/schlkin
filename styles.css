@@ -194,3 +194,5 @@ footer { padding-block: 2rem 3rem; text-align: center; color: var(--muted); font
     .stats { grid-template-columns: repeat(3, 1fr); }
     section { padding: 3rem 0; }
 }
+
+.quote { display: block; width: fit-content; margin: 0 auto .75rem; font-size: 1.25rem; font-weight: 600; }
