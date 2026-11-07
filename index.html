@@ -4,578 +4,271 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Maximiliano Schulkin - Lead Software Engineer</title>
+    <title>Maximiliano Schulkin - Engineering Manager</title>
+    <meta name="description" content="Maximiliano Schulkin — Engineering Manager at Tucows, author of Otra coronación de gloria.">
 
-    <!-- Favicon -->
     <link rel="icon" type="image/png" sizes="32x32" href="favicon-32x32.png">
     <link rel="icon" type="image/png" sizes="16x16" href="favicon-16x16.png">
-    <link rel="shortcut icon" href="favicon-32x32.png">
     <link rel="apple-touch-icon" sizes="180x180" href="apple-touch-icon.png">
-    <meta name="msapplication-TileImage" content="apple-touch-icon.png">
-    <meta name="msapplication-TileColor" content="#2563eb">
-    <meta name="theme-color" content="#2563eb">
+    <meta name="theme-color" content="#0b0d12">
 
-    <!-- Stylesheets and Fonts -->
-    <link rel="stylesheet" href="styles.css">
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link rel="stylesheet" href="styles.css">
 </head>
 
 <body>
-    <!-- Navigation -->
-    <nav class="navbar">
-        <div class="nav-container">
-            <div class="nav-logo">
-                <h2>Max Schulkin</h2>
-            </div>
-            <ul class="nav-menu">
-                <li><a href="#about" class="nav-link">About</a></li>
-                <li><a href="#experience" class="nav-link">Experience</a></li>
-                <li><a href="#education" class="nav-link">Education</a></li>
-                <li><a href="#projects" class="nav-link">Projects</a></li>
-                <li><a href="#skills" class="nav-link">Skills</a></li>
-                <li><a href="#contact" class="nav-link">Contact</a></li>
-            </ul>
-            <div class="theme-selector">
-                <button class="theme-toggle" id="theme-toggle">
-                    <i class="fas fa-palette"></i>
-                    <span>Theme</span>
-                    <i class="fas fa-chevron-down"></i>
-                </button>
-                <div class="theme-dropdown" id="theme-dropdown">
-                    <div class="theme-option" data-theme="default">
-                        <div class="theme-preview">
-                            <div class="color-dot" style="background: #2563eb;"></div>
-                            <div class="color-dot" style="background: #3b82f6;"></div>
-                            <div class="color-dot" style="background: #667eea;"></div>
-                        </div>
-                        <span>Default Blue</span>
-                    </div>
-                    <div class="theme-option" data-theme="dark">
-                        <div class="theme-preview">
-                            <div class="color-dot" style="background: #1f2937;"></div>
-                            <div class="color-dot" style="background: #374151;"></div>
-                            <div class="color-dot" style="background: #4b5563;"></div>
-                        </div>
-                        <span>Dark Mode</span>
-                    </div>
-                    <div class="theme-option" data-theme="green">
-                        <div class="theme-preview">
-                            <div class="color-dot" style="background: #10b981;"></div>
-                            <div class="color-dot" style="background: #059669;"></div>
-                            <div class="color-dot" style="background: #047857;"></div>
-                        </div>
-                        <span>Emerald Green</span>
-                    </div>
-                    <div class="theme-option" data-theme="purple">
-                        <div class="theme-preview">
-                            <div class="color-dot" style="background: #8b5cf6;"></div>
-                            <div class="color-dot" style="background: #7c3aed;"></div>
-                            <div class="color-dot" style="background: #6d28d9;"></div>
-                        </div>
-                        <span>Royal Purple</span>
-                    </div>
-                    <div class="theme-option" data-theme="orange">
-                        <div class="theme-preview">
-                            <div class="color-dot" style="background: #f97316;"></div>
-                            <div class="color-dot" style="background: #ea580c;"></div>
-                            <div class="color-dot" style="background: #dc2626;"></div>
-                        </div>
-                        <span>Sunset Orange</span>
-                    </div>
-                    <div class="theme-option" data-theme="cyberpunk">
-                        <div class="theme-preview">
-                            <div class="color-dot" style="background: #ff0080;"></div>
-                            <div class="color-dot" style="background: #00ffff;"></div>
-                            <div class="color-dot" style="background: #ffff00;"></div>
-                        </div>
-                        <span>Cyberpunk</span>
-                    </div>
-                </div>
-            </div>
-            <div class="hamburger">
-                <span class="bar"></span>
-                <span class="bar"></span>
-                <span class="bar"></span>
-            </div>
-        </div>
+    <nav class="nav">
+        <a href="#top" class="logo">MS<span>.</span></a>
+        <ul>
+            <li><a href="#about">About</a></li>
+            <li><a href="#experience">Experience</a></li>
+            <li><a href="#book">Book</a></li>
+            <li><a href="#education">Education</a></li>
+            <li><a href="#projects">Projects</a></li>
+            <li><a href="#skills">Skills</a></li>
+            <li><a href="#contact">Contact</a></li>
+        </ul>
     </nav>
 
-    <!-- Hero Section -->
-    <section class="hero">
-        <div class="hero-container">
-            <div class="hero-content">
-                <div class="hero-text">
-                    <h1 class="hero-title">Maximiliano Schulkin</h1>
-                    <h2 class="hero-subtitle">
-                        <span id="typing-text">Lead Software Engineer</span>
-                        <span class="typing-cursor">|</span>
-                    </h2>
-                    <p class="hero-description">
-                        Passionate engineer with 10+ years of experience building scalable systems,
-                        leading teams, and implementing cutting-edge ML solutions. Currently pursuing
-                        a Master's in Quantum Computing at the University of Sussex.
-                    </p>
-                    <div class="hero-quote">
-                        <em>"The Mind is the matrix of all matter"</em>
-                    </div>
-                    <div class="hero-buttons">
-                        <a href="#contact" class="btn btn-primary">Get In Touch</a>
-                        <a href="#experience" class="btn btn-secondary">View Experience</a>
-                    </div>
-                    <div class="social-links">
-                        <a href="mailto:max@schlk.in" class="social-link">
-                            <i class="fas fa-envelope"></i>
-                        </a>
-                        <a href="https://linkedin.com/in/max-schulkin" class="social-link" target="_blank">
-                            <i class="fab fa-linkedin"></i>
-                        </a>
-                        <a href="https://github.com/bjornaer" class="social-link" target="_blank">
-                            <i class="fab fa-github"></i>
-                        </a>
-                        <a href="https://stackoverflow.com/users/14751969/bjornaer" class="social-link" target="_blank">
-                            <i class="fab fa-stack-overflow"></i>
-                        </a>
-                    </div>
-                </div>
-                <div class="hero-avatar">
-                    <img src="avatar.png" alt="Maximiliano Schulkin - Profile Photo" class="avatar-image">
-                    <div class="avatar-ring"></div>
-                </div>
+    <header id="top" class="hero">
+        <div class="hero-text">
+            <p class="eyebrow">Engineering Manager @ Tucows · Author</p>
+            <h1>Maximiliano <span class="grad">Schulkin</span></h1>
+            <p class="lead">
+                10+ years building scalable systems, leading teams and shipping ML. Studying a Master's in
+                Quantum Computing at the University of Sussex. Author of
+                <a href="#book"><em>Otra coronación de gloria</em></a> (Prometeo, 2026).
+            </p>
+            <div class="actions">
+                <a href="#contact" class="btn primary">Get in touch</a>
+                <a href="#book" class="btn">Read the book</a>
+            </div>
+            <div class="socials">
+                <a href="mailto:max@schlk.in" aria-label="Email"><i class="fas fa-envelope"></i></a>
+                <a href="https://linkedin.com/in/max-schulkin" target="_blank" rel="noopener" aria-label="LinkedIn"><i class="fab fa-linkedin"></i></a>
+                <a href="https://github.com/bjornaer" target="_blank" rel="noopener" aria-label="GitHub"><i class="fab fa-github"></i></a>
+                <a href="https://stackoverflow.com/users/14751969/bjornaer" target="_blank" rel="noopener" aria-label="Stack Overflow"><i class="fab fa-stack-overflow"></i></a>
             </div>
         </div>
-    </section>
+        <img src="avatar.png" alt="Maximiliano Schulkin" class="avatar">
+    </header>
 
-    <!-- About Section -->
-    <section id="about" class="about">
-        <div class="container">
-            <h2 class="section-title">About Me</h2>
-            <div class="about-content">
-                <div class="about-text">
-                    <p>
-                        I'm a Lead Software Engineer currently at Tucows, where I architect and develop
-                        cutting-edge solutions in the domains industry. With over 10 years of experience in
-                        machine learning, infrastructure engineering, and full-stack development,
-                        I bring a unique perspective to complex technical challenges.
-                    </p>
-                    <p>
-                        My journey began with physics studies at the University of Buenos Aires, which
-                        shaped my analytical thinking and problem-solving approach. This foundation has
-                        been instrumental in my transition to software engineering, where I've had the
-                        privilege of working with innovative companies like ASAPP, Delivery Hero, Mystic AI, and many
-                        others.
-                    </p>
-                    <p>
-                        Currently, I'm expanding my expertise by pursuing a Master's in Quantum Computing
-                        at the University of Sussex, bridging my physics background with cutting-edge
-                        quantum technologies. This academic pursuit complements my professional work
-                        and opens new frontiers in computational possibilities.
-                    </p>
-                    <p>
-                        Beyond coding, I'm passionate about writing and am currently working on analytical
-                        works about Argentina's political and economic history, as well as fiction that
-                        explores environmental themes.
-                    </p>
+    <main>
+        <section id="about">
+            <h2>About</h2>
+            <div class="about">
+                <div>
+                    <p>I'm an Engineering Manager at Tucows, where I lead the teams building the platforms
+                        behind the domains industry. Before managing, I spent over a decade hands-on across machine
+                        learning, infrastructure and full-stack work at ASAPP, Delivery Hero, Mystic AI and others.</p>
+                    <p>I started out studying physics at the University of Buenos Aires, and I'm now doing a
+                        Master's in Quantum Computing at the University of Sussex.</p>
+                    <p>I also write. My book on Argentina's political and economic history is out with Prometeo
+                        Editorial, and I'm working on a novel about environmental themes.</p>
                 </div>
-                <div class="about-stats">
-                    <div class="stat">
-                        <h3>10+</h3>
-                        <p>Years Experience</p>
+                <dl class="stats">
+                    <div><dt>10+</dt><dd>Years experience</dd></div>
+                    <div><dt>50+</dt><dd>Engineers hired</dd></div>
+                    <div><dt>1</dt><dd>Book published</dd></div>
+                </dl>
+            </div>
+        </section>
+
+        <section id="experience">
+            <h2>Experience</h2>
+            <ol class="timeline">
+                <li class="card">
+                    <header><h3>Tucows</h3><span>Canada · Remote</span></header>
+                    <div class="role">
+                        <h4>Engineering Manager</h4><time>2026 – Present</time>
                     </div>
-                    <div class="stat">
-                        <h3>50+</h3>
-                        <p>Engineers Hired</p>
+                    <ul>
+                        <li>Manage and grow the engineering team: delivery, hiring and career development</li>
+                    </ul>
+                    <div class="role">
+                        <h4>Lead Software Engineer</h4><time>Oct 2024 – Dec 2025</time>
                     </div>
-                    <div class="stat">
-                        <h3>Multiple</h3>
-                        <p>Open Source Projects</p>
+                    <ul>
+                        <li>Led development of the registrar onboarding system with FastAPI, VueJS and PostgreSQL</li>
+                        <li>Architected the new resellers platform on AWS with Redis</li>
+                        <li>Built an internal SQL translation library based on Perl SQL::Abstract</li>
+                        <li>Mentored junior engineers and led AI workflow adoption</li>
+                    </ul>
+                </li>
+
+                <li class="card">
+                    <header><h3>CustomerOS</h3><span>Remote</span></header>
+                    <div class="role"><h4>Machine Learning Engineer</h4><time>Nov 2023 – May 2024</time></div>
+                    <ul>
+                        <li>Pioneered LLM-based data enrichment on AWS SageMaker</li>
+                        <li>Built in-app notifications with Go and Postmark</li>
+                        <li>Created a Neo4j knowledge graph for ML models</li>
+                        <li>Implemented async workers with Temporal and the Go SDK</li>
+                        <li>Launched a real-time backend in Phoenix/Elixir</li>
+                    </ul>
+                </li>
+
+                <li class="card">
+                    <header><h3>Lumos</h3><span>Remote</span></header>
+                    <div class="role"><h4>Senior Infrastructure Engineer</h4><time>Jul 2022 – Nov 2023</time></div>
+                    <ul>
+                        <li>Automated the release process, cutting lead time from 8h+ to 1.5h</li>
+                        <li>Architected the data pipeline with Snowflake, Airbyte and Metabase</li>
+                        <li>Restructured Terraform with Terragrunt</li>
+                        <li>Introduced and maintained Kubernetes clusters</li>
+                    </ul>
+                </li>
+
+                <li class="card">
+                    <header><h3>Mystic AI</h3><span>Bath, UK · Contractor</span></header>
+                    <div class="role"><h4>Senior Software Engineer</h4><time>Feb 2022 – Jul 2022</time></div>
+                    <ul>
+                        <li>Worked on the open-source Pipeline-ai library</li>
+                        <li>Designed an ML compute orchestrator with FastAPI, Celery and PostgreSQL on Kubernetes</li>
+                        <li>Built GCP infrastructure with Terraform, ArgoCD and Grafana</li>
+                        <li>Built hybrid infra with on-prem GPU clusters over Tailscale</li>
+                    </ul>
+                </li>
+
+                <li class="card">
+                    <header><h3>Delivery Hero</h3><span>Berlin, Germany</span></header>
+                    <div class="role"><h4>Platform Software Engineer</h4><time>Mar 2021 – Feb 2022</time></div>
+                    <ul>
+                        <li>Rewrote the fraud detection service in Go as a distributed system</li>
+                        <li>Worked on the data store with Airflow, Airbyte and AWS Lake Formation</li>
+                        <li>Moved team CI/CD to ArgoCD</li>
+                    </ul>
+                </li>
+
+                <li class="card">
+                    <header><h3>ASAPP</h3><span>Buenos Aires, Argentina</span></header>
+                    <div class="role"><h4>Research Engineer &amp; Senior Stack Engineer</h4><time>Dec 2018 – Mar 2021</time></div>
+                    <ul>
+                        <li>Built infrastructure to train AI models that learn from customer support agents</li>
+                        <li>Co-designed "treewalk", an internal framework for chatbot conversation flows</li>
+                        <li>Joined as the 5th member of ASAPP Argentina and helped scale its culture</li>
+                        <li>Interviewed and hired 50+ engineers</li>
+                    </ul>
+                </li>
+
+                <li class="card">
+                    <header><h3>AppDirect</h3><span>Buenos Aires, Argentina</span></header>
+                    <div class="role"><h4>Full Stack Engineer</h4><time>Apr 2018 – Dec 2018</time></div>
+                    <ul>
+                        <li>Built a Go microservice integrating the marketplace with GCP</li>
+                        <li>Shipped frontend features enabling the GoDaddy integration</li>
+                    </ul>
+                </li>
+
+                <li class="card">
+                    <header><h3>Digodat Analytics</h3><span>Buenos Aires, Argentina</span></header>
+                    <div class="role"><h4>Software Engineer</h4><time>Mar 2017 – Apr 2018</time></div>
+                    <ul>
+                        <li>Led the News division and international projects, including KIA Motors (Portugal), the company's first overseas client</li>
+                        <li>Planned roadmaps for La Nación and Infobae</li>
+                        <li>Built "Clickodat", a browser extension (React, Node.js, GCP, GTM) that let non-engineers instrument behavioral metrics</li>
+                        <li>Implemented behavioral data collection for Telefónica and Personal</li>
+                    </ul>
+                </li>
+            </ol>
+        </section>
+
+        <section id="book">
+            <h2>Book</h2>
+            <article class="book card">
+                <img src="cover.webp" alt="Cover of Otra coronación de gloria" width="480" height="838">
+                <div>
+                    <p class="eyebrow">Prometeo Editorial · 2026</p>
+                    <h3>Otra coronación de gloria</h3>
+                    <p class="subtitle">Industrialización, autosuficiencia y poder popular</p>
+                    <p>An analytical history of Argentina from 1930 to 2025. It covers the country's political,
+                        social and economic trends and proposes a program for development: industrialization,
+                        self-sufficiency and participatory democracy.</p>
+                    <p class="meta">304 pp · ISBN 978-631-323-141-6 · Available in public libraries across Argentina</p>
+                    <div class="actions">
+                        <a href="https://prometeoeditorial.com/productos/otra-coronacion-de-gloria-industrializacion-autosuficiencia-y-poder-popular-maximiliano-aaron-schulkin-1yagr/" class="btn primary" target="_blank" rel="noopener">Buy at Prometeo</a>
+                        <!-- ponytail: Amazon search by ISBN, swap for the direct product URL -->
+                        <a href="https://www.amazon.com/s?k=9786313231416" class="btn" target="_blank" rel="noopener"><i class="fab fa-amazon"></i> Amazon</a>
                     </div>
+                </div>
+            </article>
+            <p class="aside"><i class="fas fa-pen-nib"></i> In progress: <em>Magnus and the Last of the Druids</em>, a novel about environmental themes.</p>
+        </section>
+
+        <section id="education">
+            <h2>Education</h2>
+            <div class="grid two">
+                <div class="card">
+                    <time>Nov 2025 – Nov 2027</time>
+                    <h3>MSc Quantum Computing</h3>
+                    <p class="muted">University of Sussex, UK · <strong>Enrolled</strong></p>
+                    <p>Quantum algorithms, quantum machine learning, cryptography and hardware, with a focus on
+                        where quantum computing meets AI.</p>
+                </div>
+                <div class="card">
+                    <time>2013 – incomplete</time>
+                    <h3>BSc + MSc Physics</h3>
+                    <p class="muted">University of Buenos Aires · Average 7.84/10</p>
+                    <p>Quantum mechanics, statistical physics, electromagnetism and mathematical methods.</p>
                 </div>
             </div>
-        </div>
-    </section>
+        </section>
 
-    <!-- Experience Section -->
-    <section id="experience" class="experience">
-        <div class="container">
-            <h2 class="section-title">Professional Experience</h2>
-            <div class="timeline">
-                <div class="timeline-item">
-                    <div class="timeline-date">Oct 2024 - Present</div>
-                    <div class="timeline-content">
-                        <h3>Lead Software Engineer</h3>
-                        <h4>Tucows, Canada (Remote)</h4>
-                        <ul>
-                            <li>Lead development of registrar onboarding system with FastAPI, VueJS, and PostgreSQL</li>
-                            <li>Architected new reseller's platform deployed on AWS with Redis integration</li>
-                            <li>Developed SQL translation internal library based on PERL SQL::Abstract</li>
-                            <li>Mentor junior engineers and lead AI workflow adoption discussions</li>
-                        </ul>
-                    </div>
-                </div>
-
-                <div class="timeline-item">
-                    <div class="timeline-date">Nov 2023 - May 2024</div>
-                    <div class="timeline-content">
-                        <h3>Machine Learning Engineer</h3>
-                        <h4>CustomerOS (Remote)</h4>
-                        <ul>
-                            <li>Pioneered data enrichment process using Large Language Models on AWS Sagemaker</li>
-                            <li>Developed in-app notification system with Go and Postmark integration</li>
-                            <li>Created knowledge graph for ML models using Neo4J</li>
-                            <li>Implemented async worker system with Temporal IO and Go SDK</li>
-                            <li>Launched real-time backend system using Phoenix/Elixir</li>
-                        </ul>
-                    </div>
-                </div>
-
-                <div class="timeline-item">
-                    <div class="timeline-date">Jul 2022 - Nov 2023</div>
-                    <div class="timeline-content">
-                        <h3>Senior Infrastructure Engineer</h3>
-                        <h4>Lumos (Remote)</h4>
-                        <ul>
-                            <li>Refactored release process from manual to fully automated, reducing lead time from 8h+
-                                to 1.5h</li>
-                            <li>Architected organization's data pipeline with Snowflake, Airbyte, and Metabase</li>
-                            <li>Refactored Terraform code with Terragrunt for better infrastructure organization</li>
-                            <li>Introduced and maintained Kubernetes clusters</li>
-                        </ul>
-                    </div>
-                </div>
-
-                <div class="timeline-item">
-                    <div class="timeline-date">Feb 2022 - Jul 2022</div>
-                    <div class="timeline-content">
-                        <h3>Senior Software Engineer</h3>
-                        <h4>Mystic AI, Bath, UK (Contractor)</h4>
-                        <ul>
-                            <li>Worked on open source Pipeline-ai library</li>
-                            <li>Designed ML compute orchestrator with FastAPI, Celery, and PostgreSQL on Kubernetes</li>
-                            <li>Implemented cloud infrastructure on GCP with Terraform, ArgoCD, and Grafana</li>
-                            <li>Built hybrid infrastructure with on-premise GPU clusters and VPN using Tailscale</li>
-                        </ul>
-                    </div>
-                </div>
-
-                <div class="timeline-item">
-                    <div class="timeline-date">Mar 2021 - Feb 2022</div>
-                    <div class="timeline-content">
-                        <h3>Platform Software Engineer</h3>
-                        <h4>Delivery Hero, Berlin, Germany</h4>
-                        <ul>
-                            <li>Refactored fraud detection service in Golang with distributed system design</li>
-                            <li>Worked on data store implementation with Airflow, Airbyte, and AWS Lake Formation</li>
-                            <li>Refactored team CI/CD to use ArgoCD</li>
-                        </ul>
-                    </div>
-                </div>
-
-                <div class="timeline-item">
-                    <div class="timeline-date">Dec 2018 - Mar 2021</div>
-                    <div class="timeline-content">
-                        <h3>Research Engineer & Senior Stack Engineer</h3>
-                        <h4>ASAPP, Buenos Aires, Argentina</h4>
-                        <ul>
-                            <li>Implemented infrastructure to train AI models learning from customer support agents</li>
-                            <li>Co-designed internal framework "treewalk" for building chatbot conversational flows</li>
-                            <li>Joined as 5th member of ASAPP Argentina, helping scale company culture</li>
-                            <li>Interviewed and hired over 50 engineers</li>
-                        </ul>
-                    </div>
-                </div>
-
-                <div class="timeline-item">
-                    <div class="timeline-date">Apr 2018 - Dec 2018</div>
-                    <div class="timeline-content">
-                        <h3>Full Stack Engineer</h3>
-                        <h4>Appdirect, Buenos Aires, Argentina</h4>
-                        <ul>
-                            <li>Member of the Microservices integrations team</li>
-                            <li>Designed and implemented microservice in Golang/Go to integrate the org marketplace with
-                                GCP</li>
-                            <li>Implemented frontend key features to enable Godaddy integration by the org marketplace
-                                app</li>
-                        </ul>
-                    </div>
-                </div>
-
-                <div class="timeline-item">
-                    <div class="timeline-date">Mar 2017 - Apr 2018</div>
-                    <div class="timeline-content">
-                        <h3>Software Engineer</h3>
-                        <h4>Digodat Analytics, Buenos Aires, Argentina</h4>
-                        <ul>
-                            <li>Achieved leadership for the News division and International Projects; Data Analytics
-                            </li>
-                            <li>Managed and planned roadmap for KIA Motors (Portugal)</li>
-                            <li>This enabled the org to set a precedent overseas and expand ops</li>
-                            <li>Managed and planned roadmap for La Nacion and Infobae newspapers</li>
-                            <li>Designed and developed main internal tool called "Clickodat"</li>
-                            <li>This enabled non-tech org members to generate code to measure web pages behavioral
-                                metrics</li>
-                            <li>Browser extension tool, built with React, Node.JS, GCP and Google Tag Manager</li>
-                            <li>Implemented Telefonica's and Personal's behavioral data collection system for analysis
-                            </li>
-                        </ul>
-                    </div>
-                </div>
-
-                <div class="timeline-item">
-                    <div class="timeline-date">Jul 2013 - Mar 2017</div>
-                    <div class="timeline-content">
-                        <h3>Early Career & Physics Studies</h3>
-                        <h4>University of Buenos Aires & Various Projects</h4>
-                        <ul>
-                            <li>Started Bachelor / M.Sc. Physics program at University of Buenos Aires</li>
-                            <li>Studied Quantum Mechanics, Statistical Physics, Electromagnetism</li>
-                            <li>Began exploring programming and computational physics</li>
-                            <li>Started working on early software development projects</li>
-                            <li>Developed analytical thinking and problem-solving skills fundamental to software
-                                engineering</li>
-                        </ul>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Education Section -->
-    <section id="education" class="education">
-        <div class="container">
-            <h2 class="section-title">Education</h2>
-            <div class="education-timeline">
-                <div class="education-item">
-                    <div class="education-date">Nov 2025 - Nov 2027</div>
-                    <div class="education-content">
-                        <h3>Master of Science in Quantum Computing</h3>
-                        <h4>University of Sussex, Brighton, UK</h4>
-                        <p class="education-status">Currently Enrolled</p>
-                        <p>Advanced studies in quantum algorithms, quantum machine learning, quantum cryptography, and
-                            quantum hardware. Focusing on the intersection of quantum computing and artificial
-                            intelligence.</p>
-                    </div>
-                </div>
-
-                <div class="education-item">
-                    <div class="education-date">Jul 2013 - Incomplete</div>
-                    <div class="education-content">
-                        <h3>Bachelor + Master of Science in Physics</h3>
-                        <h4>University of Buenos Aires, Argentina</h4>
-                        <p class="education-status">Incomplete (Course Average: 7.84/10)</p>
-                        <p>Comprehensive physics program covering Quantum Mechanics, Statistical Physics,
-                            Electromagnetism, and advanced mathematical methods. This rigorous foundation provided the
-                            analytical thinking crucial for software engineering and quantum computing studies.</p>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Projects Section -->
-    <section id="projects" class="projects">
-        <div class="container">
-            <h2 class="section-title">Personal Projects</h2>
-            <div class="projects-grid">
-                <div class="project-card">
-                    <div class="project-icon">
-                        <i class="fas fa-code"></i>
-                    </div>
+        <section id="projects">
+            <h2>Projects</h2>
+            <div class="grid three">
+                <a class="card project" href="https://github.com/bjornaer/ymir" target="_blank" rel="noopener">
+                    <i class="fas fa-code"></i>
                     <h3>Ymir Lang</h3>
-                    <p>Designed and implemented a high-level programming language that simplifies ML model training and
-                        deployment.</p>
-                    <a href="https://github.com/bjornaer/ymir" class="project-link" target="_blank">
-                        <i class="fab fa-github"></i> View on GitHub
-                    </a>
-                </div>
-
-                <div class="project-card">
-                    <div class="project-icon">
-                        <i class="fas fa-database"></i>
-                    </div>
+                    <p>A high-level language that simplifies ML model training and deployment.</p>
+                </a>
+                <a class="card project" href="https://github.com/bjornaer/hermes" target="_blank" rel="noopener">
+                    <i class="fas fa-database"></i>
                     <h3>Hermes DB</h3>
-                    <p>Developed a distributed key-value store using Conflict-Free Replicated Data Types (CRDTs) to
-                        ensure eventual consistency.</p>
-                    <a href="https://github.com/bjornaer/hermes" class="project-link" target="_blank">
-                        <i class="fab fa-github"></i> View on GitHub
-                    </a>
-                </div>
-
-                <div class="project-card">
-                    <div class="project-icon">
-                        <i class="fab fa-golang"></i>
-                    </div>
+                    <p>A distributed key-value store built on CRDTs for eventual consistency.</p>
+                </a>
+                <a class="card project" href="https://github.com/bjornaer/crdt" target="_blank" rel="noopener">
+                    <i class="fab fa-golang"></i>
                     <h3>CRDT Go Module</h3>
-                    <p>Open-source library for building replicated data structures in Go, enabling distributed system
-                        consistency.</p>
-                    <a href="https://github.com/bjornaer/crdt" class="project-link" target="_blank">
-                        <i class="fab fa-github"></i> View on GitHub
-                    </a>
+                    <p>An open-source library for replicated data structures in Go.</p>
+                </a>
+            </div>
+        </section>
+
+        <section id="skills">
+            <h2>Skills</h2>
+            <dl class="skills">
+                <dt>Languages</dt>
+                <dd>Python</dd><dd>Go</dd><dd>Elixir</dd><dd>TypeScript</dd><dd>C++</dd><dd>Java</dd><dd>Haskell</dd><dd>Cirq</dd>
+                <dt>Infra &amp; DevOps</dt>
+                <dd>Kubernetes</dd><dd>Terraform</dd><dd>Terragrunt</dd><dd>ArgoCD</dd><dd>Docker</dd><dd>Ansible</dd><dd>Chef</dd><dd>Puppet</dd><dd>CI/CD</dd>
+                <dt>Data</dt>
+                <dd>PostgreSQL</dd><dd>Redis</dd><dd>Elasticsearch</dd><dd>Cassandra</dd><dd>MySQL</dd><dd>Aurora</dd><dd>DynamoDB</dd><dd>Neo4j</dd>
+                <dt>Cloud</dt>
+                <dd>AWS</dd><dd>GCP</dd><dd>Azure</dd><dd>DigitalOcean</dd>
+                <dt>Expertise</dt>
+                <dd>Engineering Management</dd><dd>Distributed Systems</dd><dd>System Architecture</dd><dd>Machine Learning</dd><dd>MLOps</dd><dd>Data Engineering</dd><dd>Quantum Computing</dd><dd>Physics</dd>
+            </dl>
+        </section>
+
+        <section id="contact">
+            <h2>Let's connect</h2>
+            <div class="card contact">
+                <p>Always up for talking about new opportunities, hard technical problems or collaborations.</p>
+                <a href="mailto:max@schlk.in" class="email">max@schlk.in</a>
+                <p class="muted"><i class="fas fa-phone"></i> +34 648 18 36 51 · <i class="fas fa-location-dot"></i> Remote / Europe</p>
+                <div class="socials">
+                    <a href="https://linkedin.com/in/max-schulkin" target="_blank" rel="noopener" aria-label="LinkedIn"><i class="fab fa-linkedin"></i></a>
+                    <a href="https://github.com/bjornaer" target="_blank" rel="noopener" aria-label="GitHub"><i class="fab fa-github"></i></a>
+                    <a href="https://stackoverflow.com/users/14751969/bjornaer" target="_blank" rel="noopener" aria-label="Stack Overflow"><i class="fab fa-stack-overflow"></i></a>
                 </div>
             </div>
-        </div>
-    </section>
+        </section>
+    </main>
 
-    <!-- Skills Section -->
-    <section id="skills" class="skills">
-        <div class="container">
-            <h2 class="section-title">Technical Skills</h2>
-            <div class="skills-grid">
-                <div class="skill-category">
-                    <h3>Programming Languages</h3>
-                    <div class="skills-list">
-                        <span class="skill-tag">Python</span>
-                        <span class="skill-tag">Go</span>
-                        <span class="skill-tag">Elixir</span>
-                        <span class="skill-tag">JavaScript/TypeScript</span>
-                        <span class="skill-tag">C++</span>
-                        <span class="skill-tag">Java</span>
-                        <span class="skill-tag">Cirq</span>
-                        <span class="skill-tag">Haskell</span>
-                    </div>
-                </div>
-
-                <div class="skill-category">
-                    <h3>Infrastructure & DevOps</h3>
-                    <div class="skills-list">
-                        <span class="skill-tag">Kubernetes</span>
-                        <span class="skill-tag">Terraform</span>
-                        <span class="skill-tag">Terragrunt</span>
-                        <span class="skill-tag">Chef</span>
-                        <span class="skill-tag">Puppet</span>
-                        <span class="skill-tag">Ansible</span>
-                        <span class="skill-tag">ArgoCD</span>
-                        <span class="skill-tag">Docker</span>
-                        <span class="skill-tag">CI/CD</span>
-                        <span class="skill-tag">Git</span>
-                    </div>
-                </div>
-
-                <div class="skill-category">
-                    <h3>Databases</h3>
-                    <div class="skills-list">
-                        <span class="skill-tag">PostgreSQL</span>
-                        <span class="skill-tag">Elasticsearch</span>
-                        <span class="skill-tag">Cassandra</span>
-                        <span class="skill-tag">Redis</span>
-                        <span class="skill-tag">MySQL</span>
-                        <span class="skill-tag">Aurora</span>
-                        <span class="skill-tag">DynamoDB</span>
-                        <span class="skill-tag">Neo4J</span>
-                    </div>
-                </div>
-
-                <div class="skill-category">
-                    <h3>Cloud Platforms</h3>
-                    <div class="skills-list">
-                        <span class="skill-tag">AWS</span>
-                        <span class="skill-tag">GCP</span>
-                        <span class="skill-tag">Digital Ocean</span>
-                        <span class="skill-tag">Azure</span>
-                    </div>
-                </div>
-
-                <div class="skill-category">
-                    <h3>Knowledge & Expertise</h3>
-                    <div class="skills-list">
-                        <span class="skill-tag">Quantum Computing</span>
-                        <span class="skill-tag">Machine Learning</span>
-                        <span class="skill-tag">MLOps</span>
-                        <span class="skill-tag">Distributed Systems</span>
-                        <span class="skill-tag">System Architecture</span>
-                        <span class="skill-tag">Deep Learning</span>
-                        <span class="skill-tag">Data Engineering</span>
-                        <span class="skill-tag">Full Stack Development</span>
-                        <span class="skill-tag">DevOps</span>
-                        <span class="skill-tag">Infrastructure Engineering</span>
-                        <span class="skill-tag">Physics</span>
-                        <span class="skill-tag">Advanced Mathematics</span>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Publications Section -->
-    <section id="publications" class="publications">
-        <div class="container">
-            <h2 class="section-title">Publications & Writing</h2>
-            <div class="publications-grid">
-                <div class="publication-card">
-                    <div class="publication-icon">
-                        <i class="fas fa-book"></i>
-                    </div>
-                    <h3>Otra Coronación de Gloria</h3>
-                    <p class="publication-status">(In Progress)</p>
-                    <p>Analytical history of Argentina (1930–2025), examining political, social and economic trends and
-                        proposing policy alternatives.</p>
-                </div>
-
-                <div class="publication-card">
-                    <div class="publication-icon">
-                        <i class="fas fa-tree"></i>
-                    </div>
-                    <h3>Magnus and the Last of the Druids</h3>
-                    <p class="publication-status">(In Progress)</p>
-                    <p>Fiction exploring environmental themes, showcasing creative writing abilities beyond technical
-                        work.</p>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Contact Section -->
-    <section id="contact" class="contact">
-        <div class="container">
-            <h2 class="section-title">Let's Connect</h2>
-            <div class="contact-content">
-                <div class="contact-info">
-                    <h3>Get In Touch</h3>
-                    <p>I'm always interested in discussing new opportunities, technical challenges, or collaborative
-                        projects.</p>
-
-                    <div class="contact-item">
-                        <i class="fas fa-envelope"></i>
-                        <a href="mailto:max@schlk.in">max@schlk.in</a>
-                    </div>
-
-                    <div class="contact-item">
-                        <i class="fas fa-phone"></i>
-                        <span>+34 648 18 36 51</span>
-                    </div>
-
-                    <div class="contact-item">
-                        <i class="fas fa-map-marker-alt"></i>
-                        <span>Remote / Europe</span>
-                    </div>
-                </div>
-
-                <div class="contact-links">
-                    <a href="https://linkedin.com/in/max-schulkin" class="contact-link" target="_blank">
-                        <i class="fab fa-linkedin"></i>
-                        <span>LinkedIn</span>
-                    </a>
-                    <a href="https://github.com/bjornaer" class="contact-link" target="_blank">
-                        <i class="fab fa-github"></i>
-                        <span>GitHub</span>
-                    </a>
-                    <a href="https://stackoverflow.com/users/14751969/bjornaer" class="contact-link" target="_blank">
-                        <i class="fab fa-stack-overflow"></i>
-                        <span>Stack Overflow</span>
-                    </a>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Footer -->
-    <footer class="footer">
-        <div class="container">
-            <p>&copy; 2025 Maximiliano Schulkin. All rights reserved.</p>
-        </div>
-    </footer>
-
-    <script src="script.js"></script>
+    <footer><em>"The Mind is the matrix of all matter"</em> · © 2026 Maximiliano Schulkin</footer>
 </body>
 
 </html>
