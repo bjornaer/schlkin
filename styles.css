@@ -22,6 +22,17 @@
     }
 }
 
+/* Per-section accents: work = tech blue, book = editorial crimson, academia & quantum = violet */
+#experience { --accent: #4facfe; --accent-2: #00e0f0; }
+#book { --accent: #ff4d6d; --accent-2: #c86dd7; }
+#education, #projects { --accent: #8b9cff; --accent-2: #a77bf0; }
+
+@media (prefers-color-scheme: light) {
+    #experience { --accent: #2563eb; --accent-2: #0891b2; }
+    #book { --accent: #be123c; --accent-2: #86198f; }
+    #education, #projects { --accent: #4f46e5; --accent-2: #7c3aed; }
+}
+
 * { box-sizing: border-box; margin: 0; }
 
 html { scroll-behavior: smooth; scroll-padding-top: 5rem; }
