@@ -4,8 +4,8 @@
     --border: #232837;
     --text: #e6e8ee;
     --muted: #8a91a5;
-    --accent: #7c8cff;
-    --accent-2: #3ee0cf;
+    --accent: #ff5468;
+    --accent-2: #ffa24c;
     --grad: linear-gradient(120deg, var(--accent), var(--accent-2));
     color-scheme: dark light;
 }
@@ -17,8 +17,8 @@
         --border: #e3e6ee;
         --text: #141722;
         --muted: #5c6378;
-        --accent: #4f5dff;
-        --accent-2: #0ea5a0;
+        --accent: #e11d48;
+        --accent-2: #ea580c;
     }
 }
 
